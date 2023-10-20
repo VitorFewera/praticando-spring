@@ -1,6 +1,5 @@
 package one.digitalinnovation.gof.service;
 
-import one.digitalinnovation.gof.model.Cliente;
 import one.digitalinnovation.gof.model.Produto;
 
 public interface ProdutoService {
@@ -9,9 +8,7 @@ public interface ProdutoService {
 
     Produto buscarPorId(Long id);
 
-    void inserir(Produto produto);
-
-    void atualizar(Long id, Produto produto);
+    Produto inserir(Produto produto);
 
     void deletar(Long id);
 

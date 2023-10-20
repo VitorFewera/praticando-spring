@@ -1,12 +1,11 @@
 package one.digitalinnovation.gof.service.impl;
 
-import one.digitalinnovation.gof.model.ClienteRepository;
-import one.digitalinnovation.gof.model.EnderecoRepository;
-import one.digitalinnovation.gof.model.Produto;
-import one.digitalinnovation.gof.model.ProdutoRepository;
+import one.digitalinnovation.gof.model.*;
 import one.digitalinnovation.gof.service.ProdutoService;
 import one.digitalinnovation.gof.service.ViaCepService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 public class ProdutoServicelmpl implements ProdutoService {
 
@@ -21,31 +20,28 @@ public class ProdutoServicelmpl implements ProdutoService {
 
     @Override
     public Iterable<Produto> buscarTodos() {
-        return null;
+        return produtoRepository.findAll();
     }
 
     @Override
     public Produto buscarPorId(Long id) {
-        return null;
+        Optional<Produto> produto = produtoRepository.findById(id);
+        return produto.get();
     }
 
     @Override
-    public void inserir(Produto produto) {
-
+    public Produto inserir(Produto produto) {
+        return produtoRepository.save(produto);
     }
 
-    @Override
-    public void atualizar(Long id, Produto produto) {
-
-    }
 
     @Override
     public void deletar(Long id) {
-
+        produtoRepository.deleteById(id);
     }
 
     @Override
     public void deletarTodos() {
-
+        produtoRepository.deleteAll();
     }
 }
