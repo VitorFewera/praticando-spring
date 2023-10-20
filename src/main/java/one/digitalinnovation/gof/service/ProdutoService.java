@@ -8,7 +8,7 @@ public interface ProdutoService {
 
     Produto buscarPorId(Long id);
 
-    Produto inserir(Produto produto);
+   void inserir(Produto produto);
 
     void deletar(Long id);
 

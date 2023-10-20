@@ -4,9 +4,11 @@ import one.digitalinnovation.gof.model.*;
 import one.digitalinnovation.gof.service.ProdutoService;
 import one.digitalinnovation.gof.service.ViaCepService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class ProdutoServicelmpl implements ProdutoService {
 
     @Autowired
@@ -30,10 +32,9 @@ public class ProdutoServicelmpl implements ProdutoService {
     }
 
     @Override
-    public Produto inserir(Produto produto) {
-        return produtoRepository.save(produto);
+    public void inserir(Produto produto) {
+        produtoRepository.save(produto);
     }
-
 
     @Override
     public void deletar(Long id) {
